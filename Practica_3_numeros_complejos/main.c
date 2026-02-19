@@ -5,8 +5,7 @@
 int main(void) {
     TComplejo i,v,zr,zl,zc,va,vb,vc,vd,zTotal;
     float w;
-    v.re = 220;
-    v.im = 0;
+    v = crearComplejo(220,0);
     w = FrecuenciaAngular(50);
     zr = ImpedanciaR(5000);
     zc = ImpedanciaC(1.2*pow(10,-6),w);
@@ -16,8 +15,7 @@ int main(void) {
     va = v;
     vb = sumaComplejos(CaidaPotencial(zl,i),CaidaPotencial(zc,i));
     vc = CaidaPotencial(zc,i);
-    vd.re = 0;
-    vd.im = 0;
+    vd = crearComplejo(0,0);
     imprimirComplejo(va);
     printf("\n");
     imprimirComplejo(vb);

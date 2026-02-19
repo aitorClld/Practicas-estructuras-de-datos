@@ -1,11 +1,6 @@
 #include <math.h>
 #include <stdio.h>
-
-typedef struct {
-    float re;
-    float im;
-}TComplejo;
-
+#include "complejos.h"
 TComplejo crearComplejo(float re, float im) {
     TComplejo z;
     z.re = re;
@@ -60,10 +55,14 @@ TComplejo multiplicacionComplejos(TComplejo z1, TComplejo z2) {
 }
 
 TComplejo divisionComplejos(TComplejo z1, TComplejo z2) {
-    TComplejo division;
-    division.re = ((z1.re*z2.re) + (z1.im*z2.im)) / (pow(z2.re,2)+pow(z2.im,2));
-    division.im = ((z1.im*z2.re) - (z1.re*z2.im)) / (pow(z2.re,2)+pow(z2.im,2));
-    return division;
+    TComplejo division = {0,0};
+    if (z2.re != 0 || z2.im != 0) {
+        division.re = ((z1.re*z2.re) + (z1.im*z2.im)) / (pow(z2.re,2)+pow(z2.im,2));
+        division.im = ((z1.im*z2.re) - (z1.re*z2.im)) / (pow(z2.re,2)+pow(z2.im,2));
+        return division;
+    }else {
+        return division;
+    }
 }
 
 void imprimirComplejo(TComplejo z) {

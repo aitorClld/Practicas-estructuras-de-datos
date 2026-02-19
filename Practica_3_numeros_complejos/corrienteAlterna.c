@@ -2,23 +2,20 @@
 
 TComplejo ImpedanciaL(float l, float w) {
     TComplejo zl;
-    zl.re = 0;
-    zl.im = l*w;
+    zl = crearComplejo(0,w*l);
     return zl;
 }
 
 
 TComplejo ImpedanciaR(float r) {
     TComplejo zr;
-    zr.re = r;
-    zr.im = 0;
+    zr = crearComplejo(r,0);
     return zr;
 }
 
 TComplejo ImpedanciaC(float c, float w) {
     TComplejo zc;
-    zc.re = 0;
-    zc.im = -1/(c*w);
+    zc = crearComplejo(0,-1/(c*w));
     return zc;
 }
 
